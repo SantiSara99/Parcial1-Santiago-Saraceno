@@ -63,7 +63,9 @@ void inicializarArray(Trabajo array[],int limite)
 void altaTrabajo(Trabajo array[],int limite,int id)
 {
 	char marca[MARCA_LEN];
+	int rodado;
 	float precio;
+	int fecha[3];
 	int posicionLibre;
 
 	posicionLibre = buscarLibre(array, limite);
@@ -73,25 +75,44 @@ void altaTrabajo(Trabajo array[],int limite,int id)
 	}
 	else
 	{
-		getString(marca, "descripcion?");
-		precio = getFloat(precio, "precio?");
+		getInt(rodado, "rodado?");
+		getString(marca, "marca?");
+		getFloat(precio, "precio?");
+		getFecha(fecha, id);
 
 		strcpy(array[posicionLibre].marca,marca);
 		array[posicionLibre].precio=precio;
 		array[posicionLibre].isEmpty=0;
 
+
+
 		puts("bien cargado");
 	}
 }
 
+void getFecha(Fecha array[], int id)
+{
+	int dia;
+	int mes;
+	int anio;
+
+	getInt(dia, "dia?");
+	getInt(mes, "mes?");
+	getInt(anio, "año?");
+
+	array[id].dia=dia;
+	array[id].mes=mes;
+	array[id].anio=anio;
+}
+
 void opcionesMenu()
 {
-	printf("\n1.ALTA Producto");
-	printf("\n2.BAJA Producto");
-	printf("\n3.MODIFICACIÓN Producto");
-	printf("\n4.LISTADO Productos");
-	printf("\n5.LISTADO ordenado por precio");
-	printf("\n6.LISTADO ordenado por descripción\n");
+	printf("\n1.ALTA TRABAJO");
+	printf("\n2.MODIFICAR TRABAJO");
+	printf("\n3.BAJA TRABAJO");
+	printf("\n4.LISTAR TRABAJOS");
+	printf("\n5.LISTAR SERVICIOS");
+	printf("\n6.TOTAL en pesos por los servicios prestados.\n");
 }
 
 int buscarLibre(Trabajo array[],int limite)

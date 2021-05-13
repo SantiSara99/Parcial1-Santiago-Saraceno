@@ -6,6 +6,7 @@
 #endif/* SARACENO_H_ */
 
 
+
 void getString(char* resultado, char* mensaje);
 
 int getInt(int numero, char* mensaje);

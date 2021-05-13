@@ -1,5 +1,7 @@
 #include "saraceno.h"
 
+
+
 void getString(char* resultado, char* mensaje) //agregale la validacion con lngitud
 {
 	puts(mensaje);

@@ -67,7 +67,7 @@ int main(void)
 			break;
 		}
 
-		printf("queres ingresar otro?\nSi/\nNo\n");
+		printf("queres hacer otra accion?\nSi/\nNo\n");
 		scanf("%d",&funcionMenu);
 	}
 

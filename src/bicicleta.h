@@ -10,6 +10,14 @@
 
 #define DESC_LEN 25
 #define MARCA_LEN 15
+#define QTY_TRABAJOS 5
+
+typedef struct
+{
+	int dia;
+	int mes;
+	int anio;
+}Fecha;
 
 typedef struct
 {
@@ -25,7 +33,7 @@ typedef struct
 	int rodado;
 	float precio;
 	Servicio id_servicio;
-	int fecha[3];
+	Fecha fecha[QTY_TRABAJOS];
 	int isEmpty;//0=lleno 1=vacio
 }Trabajo; //tipo de dato
 
@@ -40,5 +48,7 @@ void altaTrabajo(Trabajo array[],int limite, int id);
 int buscarLibre(Trabajo array[],int limite);
 
 void llenarServicios(Servicio array[],int limite);
+
+void getFecha(Fecha array[], int id);
 
 #endif /* BICICLETA_H_ */
