@@ -37,13 +37,11 @@ typedef struct
 	int isEmpty;//0=lleno 1=vacio
 }Trabajo; //tipo de dato
 
-void opcionesMenu();
-
 void inicializarArray(Trabajo array[],int limite);
 
 void imprimirArray(Trabajo array[],int limite);
 
-void altaTrabajo(Trabajo array[],int limite, int id);
+void altaTrabajo(Trabajo array[],int limite);
 
 int buscarLibre(Trabajo array[],int limite);
 

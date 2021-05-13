@@ -20,18 +20,17 @@
  * @param limite define el tamaño del array
  * @return retorna 0 si sale bien retorna -1 si está mal
  */
-void imprimirArrayTrabajo(Trabajo array[],int limite)
+void imprimirArray(Trabajo array[],int limite)
 {
 	int i;
 		for(i=0;i<limite;i++)
 		{
 			if(array[i].isEmpty==0)
 			{
-				printf("-ID: %d \n-descripcion: %s \n-Precio: %f",array[i].id,array[i].marca,array[i].precio);
+				printf("-Servicio: %d \n-rodado: %d \n-Precio: %f \n-marca: %s \n-fecha: %d",array[i].id_servicio,array[i].rodado,array[i].precio,array[i].marca,array[i].fecha);
 			}
 		}
 }
-
 
 /**
  * @brief inicializa el array de productos
@@ -46,6 +45,7 @@ void inicializarArray(Trabajo array[],int limite)
 		for(i=0;i<limite;i++)
 		{
 			array[i].isEmpty=1;
+			array[i].id=20000;
 		}
 }
 
@@ -60,7 +60,7 @@ void inicializarArray(Trabajo array[],int limite)
  * @param precio
  * @param isEmpty
  */
-void altaTrabajo(Trabajo array[],int limite,int id)
+void altaTrabajo(Trabajo array[],int limite)
 {
 	char marca[MARCA_LEN];
 	int rodado;
@@ -78,7 +78,7 @@ void altaTrabajo(Trabajo array[],int limite,int id)
 		getInt(rodado, "rodado?");
 		getString(marca, "marca?");
 		getFloat(precio, "precio?");
-		getFecha(fecha, id);
+		getFecha(fecha, array[posicionLibre].id);
 
 		strcpy(array[posicionLibre].marca,marca);
 		array[posicionLibre].precio=precio;
@@ -105,16 +105,6 @@ void getFecha(Fecha array[], int id)
 	array[id].anio=anio;
 }
 
-void opcionesMenu()
-{
-	printf("\n1.ALTA TRABAJO");
-	printf("\n2.MODIFICAR TRABAJO");
-	printf("\n3.BAJA TRABAJO");
-	printf("\n4.LISTAR TRABAJOS");
-	printf("\n5.LISTAR SERVICIOS");
-	printf("\n6.TOTAL en pesos por los servicios prestados.\n");
-}
-
 int buscarLibre(Trabajo array[],int limite)
 {
 	int i;
@@ -133,19 +123,19 @@ int buscarLibre(Trabajo array[],int limite)
 
 void llenarServicios(Servicio array[],int limite)
 {
-	array[0].id=1;
+	array[0].id=20000;
 	strcpy(array[0].descripcion,"Limpieza");
 	array[0].precio=250;
 
-	array[1].id=2;
+	array[1].id=20001;
 	strcpy(array[1].descripcion,"Parche");
 	array[1].precio=300;
 
-	array[2].id=3;
+	array[2].id=20002;
 	strcpy(array[2].descripcion,"Centrado");
 	array[2].precio=400;
 
-	array[3].id=4;
+	array[3].id=20003;
 	strcpy(array[3].descripcion,"Cadena");
 	array[3].precio=350;
 }

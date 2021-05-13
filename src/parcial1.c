@@ -30,46 +30,49 @@ int main(void)
 
 	int funcionMenu;
 	int selector;
-	int id_T;
-	id_T=0;
 	funcionMenu=1;
-	while(funcionMenu==1)
+
+	do
 	{
-		opcionesMenu();
+		puts("\n1.ALTA TRABAJO");
+		puts("\n2.MODIFICAR TRABAJO");
+		puts("\n3.BAJA TRABAJO");
+		puts("\n4.LISTAR TRABAJOS");
+		puts("\n5.LISTAR SERVICIOS");
+		puts("\n6.TOTAL en pesos por los servicios prestados.\n");
 
-		selector=0;
-		scanf("%d",&selector);
-		switch (selector)
-		{
-			case 1://alta
-				altaTrabajo(arrayTrabajo,QTY_TRABAJOS,id_T);
-				id_T=id_T+1;
-			break;
+			scanf("%d",&selector);
+				switch (selector)
+				{
+					case 1://alta
+						altaTrabajo(arrayTrabajo,QTY_TRABAJOS);
+					break;
 
-			case 2://modificacion
-			break;
+					case 2://modificacion
+					break;
 
-			case 3://baja
-			break;
+					case 3://baja
+					break;
 
-			case 4://imprimir trabajos
-			break;
+					case 4://imprimir trabajos
+						imprimirArray(arrayTrabajo, QTY_TRABAJOS);
+					break;
 
-			case 5://imprimir servicio
-			break;
+					case 5://imprimir servicio
+					break;
 
-			case 6://precio total
-			break;
+					case 6://precio total
+					break;
 
-			default:
-				printf("ingresa una opcion valida");
-				scanf("%d",&selector);
-			break;
-		}
+					default:
+						puts("ingresa una opcion valida");
+						scanf("%d",&selector);
+					break;
+				}
 
-		printf("queres hacer otra accion?\nSi/\nNo\n");
-		scanf("%d",&funcionMenu);
-	}
-
+				fflush(stdin);
+				printf("queres hacer otra accion?\nSi/No\n");
+				scanf("%d",&funcionMenu);
+		}while(funcionMenu==1);
 	return EXIT_SUCCESS;
 }
